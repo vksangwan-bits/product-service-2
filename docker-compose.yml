@@ -26,12 +26,13 @@ services:
     container_name: cproduct_dbase
     image: postgres:latest
     ports:
-      - "32001:5432"
+    - "5433:5432"
     environment:
-      POSTGRES_USER: postgres
-      POSTGRES_PASSWORD: Mango42
+      POSTGRES_USER: postgres2
+      POSTGRES_PASSWORD: Mango43
       POSTGRES_DB: product
     networks:
       - micro_network
     volumes:
-      - productdb_vol:/var/lib/postgresql/data
+    - productdb_vol:/var/lib/postgresql/data
+    - ./initdb-product.sql:/docker-entrypoint-initdb.d/initdb-product.sql
