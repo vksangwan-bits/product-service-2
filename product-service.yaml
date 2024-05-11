@@ -1,0 +1,12 @@
+# product-app-service.yaml
+apiVersion: v1
+kind: Service
+metadata:
+  name: product-app
+spec:
+  ports:
+  - port: 5002
+    targetPort: 5002
+  selector:
+    app: product-app
+  type: NodePort

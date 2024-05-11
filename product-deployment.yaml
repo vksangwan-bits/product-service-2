@@ -1,0 +1,23 @@
+# product-app-deployment.yaml
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: product-app
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: product-app
+  template:
+    metadata:
+      labels:
+        app: product-app
+    spec:
+      containers:
+      - name: product-app
+        image: vksan9/product-app:latest
+        ports:
+        - containerPort: 5002
+        env:
+        - name: DATABASE_HOST
+          value: product-db  # Use the service name here

@@ -14,10 +14,12 @@ class Config:
 class DevelopmentConfig(Config):
     ENV = "development"
     DEBUG = True
-    SQLALCHEMY_DATABASE_URI = 'postgresql+psycopg2://postgres2:Mango43@host.docker.internal:5433/product'
+    # SQLALCHEMY_DATABASE_URI = 'postgresql+psycopg2://postgres2:Mango43@host.docker.internal:5433/product' # to be used when hosting with docker
+    SQLALCHEMY_DATABASE_URI = 'postgresql+psycopg2://postgres2:Mango43@product-db:5433/product' # to be used with kubectl minikube (the service name has to be provided)
 
 
 class ProductionConfig(Config):
     ENV = "production"
     DEBUG = True
-    SQLALCHEMY_DATABASE_URI = 'postgresql+psycopg2://postgres2:Mango43@host.docker.internal:5433/product'
+    # SQLALCHEMY_DATABASE_URI = 'postgresql+psycopg2://postgres2:Mango43@host.docker.internal:5433/product' # to be used when hosting with docker
+    SQLALCHEMY_DATABASE_URI = 'postgresql+psycopg2://postgres2:Mango43@product-db:5433/product'
